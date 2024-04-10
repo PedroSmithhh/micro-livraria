@@ -72,3 +72,13 @@ body {
         min-height: 250px;
     }
 }
+
+.pesquisar {
+    background-color:#68a1c772;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(245, 252, 254);
+}
+
+.pesquisar:hover{
+    background: rgb(105, 96, 141);
+}

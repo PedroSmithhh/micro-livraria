@@ -88,3 +88,38 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(err);
         });
 });
+
+//Colocando a funcionalidade no botão de pesquisar ID
+
+const pesquisar = document.querySelector('.pesquisar');
+
+pesquisar.addEventListener('click', function () {
+    const books = document.querySelector('.books');
+    const idInput = document.querySelector('.input-id');
+    const productID = idInput.value.trim();
+
+    if (productID) {
+        fetch('http://localhost:3000/product/' + productID)
+
+            .then((data) => {
+                if (data.ok) {
+                    return data.json();
+                }
+                throw data.statusText;
+            })
+
+            .then((book) => {
+                books.innerHTML = '';
+                books.appendChild(newBook(book));
+            })
+
+            .catch((err) => {
+                swal('Erro', 'Produto não encontrado', 'error');
+                console.error(err);
+            });
+
+    } else   swal('Erro', 'ID não encontrado', 'error');
+  
+
+});
+
